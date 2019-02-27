@@ -155,11 +155,11 @@ fi
 # Generate Makefile from Makefile.in
 cp ${MF}.in ${MF}
 sed -e 's,#PREFIX#,'${PREFIX}',' \
-    -e 's,#EV_LIB#,'${EVDIR}'/lib/libev.a,' \
+    -e 's,#EV_LIB#,'${EVDIR}'/libev.a,' \
     -e 's,#EV_INCLUDE#,-I'${EVDIR}'/include,' \
-    -e 's,#MPFR_LIB#,'${MPFRDIR}'/lib/libmpfr.a,' \
+    -e 's,#MPFR_LIB#,'${MPFRDIR}'/libmpfr.a,' \
     -e 's,#MPFR_INCLUDE#,-I'${MPFRDIR}'/include,' \
-    -e 's,#GMP_LIB#,'${GMPDIR}'/lib/libgmp.a,' \
+    -e 's,#GMP_LIB#,'${GMPDIR}'/libgmp.a,' \
     -e 's,#GMP_INCLUDE#,-I'${GMPDIR}'/include,' \
     -e 's,#AC_IBV#,'${AC_IBV}',' \
     -e 's,#DEF_AC_IBV#,'${DEF_AC_IBV}',' \

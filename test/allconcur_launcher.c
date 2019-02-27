@@ -265,7 +265,7 @@ int main(int argc, char** argv)
     /* Check whether all servers see the allconcur binary */
     char is_binary = 1, is_binaries = 0;
     if (mpirank < server_count) {
-        sprintf(path, "%s/allconcur", bin_path);
+        sprintf(path, "bin/allconcur");
         if(access(path, F_OK) == -1) {
             /* Binary does not exist */
             printf("Error: [%s] cannot find binary %s\n", hostname, path);
@@ -410,7 +410,7 @@ int main(int argc, char** argv)
             fprintf(cfg_stream, "warmup_period %lf\n", warmup);
             fclose(cfg_stream);
             
-            sprintf(path, "%s/allconcur", bin_path);
+            sprintf(path, "bin/allconcur");
             
             char sc[8];
             sprintf(sc, "%d", server_count);
@@ -438,7 +438,7 @@ int main(int argc, char** argv)
                     (char *)0);
             }
             if (-1 == rc) {
-                printf("[p%d] Error: execl %d (%s)\n", mpirank, errno, strerror(errno));
+                printf("[p%d] Error: execl %d (%s) - Path: %s\n", mpirank, errno, strerror(errno), path);
             }
 #else
             sprintf(vlogfile, "--log-file=srv_%s#%d.mem", hostname, cpurank);
